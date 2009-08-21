@@ -1,0 +1,60 @@
+--- rezerwar-0.3/mkfiles/Makefile.unix~	2009-08-10 14:30:36.000000000 +0200
++++ rezerwar-0.3/mkfiles/Makefile.unix	2009-08-20 14:23:16.000000000 +0200
+@@ -4,7 +4,7 @@
+ # Copyright (c) 2009 Bertrand Janin
+ #
+ 
+-TARGET=/usr/share/games/rezerwar
++TARGET=/usr/share/rezerwar
+ DATATARGET=${TARGET}/data
+ 
+ all: build
+@@ -27,17 +27,16 @@
+ 	ln -s mkfiles/Makefile.default MkConf
+ 
+ install:
+-	mkdir -p /usr/games
+-	mkdir -p ${DATATARGET}/gfx
+-	mkdir -p ${DATATARGET}/music
+-	mkdir -p ${DATATARGET}/sfx
+-	mkdir -p ${DATATARGET}/levels
+-	cp -rf doc ${TARGET}
+-	install -m 644 data/gfx/*.bmp ${DATATARGET}/gfx/
+-	install -m 644 data/levels/* ${DATATARGET}/levels/
+-	install -m 644 data/sfx/*.wav ${DATATARGET}/sfx/
+-	install -m 644 data/music/*.mp3 ${DATATARGET}/music/
+-	install -m 755 src/rezerwar /usr/games
++	mkdir -p $(DESTDIR)/usr/bin
++	mkdir -p $(DESTDIR)${DATATARGET}/gfx
++	mkdir -p $(DESTDIR)${DATATARGET}/music
++	mkdir -p $(DESTDIR)${DATATARGET}/sfx
++	mkdir -p $(DESTDIR)${DATATARGET}/levels
++	install data/gfx/*.bmp $(DESTDIR)${DATATARGET}/gfx/
++	install data/levels/* $(DESTDIR)${DATATARGET}/levels/
++	install data/sfx/*.wav $(DESTDIR)${DATATARGET}/sfx/
++	install data/music/*.mp3 $(DESTDIR)${DATATARGET}/music/
++	install src/rezerwar $(DESTDIR)/usr/bin
+ 
+ uninstall:
+ 	rm -f /usr/games/rezerwar
+--- rezerwar-0.3/src/Makefile~	2009-08-10 14:30:36.000000000 +0200
++++ rezerwar-0.3/src/Makefile	2009-08-20 15:44:06.000000000 +0200
+@@ -42,6 +42,6 @@
+ 	valgrind --leak-check=full --show-reachable=yes ./$(PROGRAM) >& LOG
+ 
+ win32:
+-	$(CC) $(OBJECTS) ../data/gfx/icons/icons.o $(LIBS) -o $(PROGRAM)
++	$(CC) $(LDFLAGS) $(OBJECTS) ../data/gfx/icons/icons.o -o $(PROGRAM) $(LIBS)
+ 	strip -s $(PROGRAM).exe
+ 	upx $(PROGRAM).exe
+--- rezerwar-0.3/src/Makefile~	2009-08-10 14:30:36.000000000 +0200
++++ rezerwar-0.3/src/Makefile	2009-08-20 15:46:18.000000000 +0200
+@@ -18,7 +18,7 @@
+ all: $(PROGRAM)
+ 
+ $(PROGRAM): $(OBJECTS)
+-	$(CC) $(OBJECTS) $(LIBS) -o $(PROGRAM)
++	$(CC) $(LDFLAGS) $(OBJECTS) -o $(PROGRAM) $(LIBS)
+ 
+ $(OBJECTS): %.o: %.c rezerwar.h ../config.h
+ 	$(CC) $(CFLAGS) -c $<
