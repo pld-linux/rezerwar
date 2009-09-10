@@ -1,0 +1,14 @@
+--- rezerwar-0.4/configure~	2009-09-09 22:51:53.000000000 +0200
++++ rezerwar-0.4/configure	2009-09-10 14:03:11.000000000 +0200
+@@ -177,9 +177,9 @@
+ Linux|Unix|POSIX|*BSD)
+ 	check_sdl
+ 	[ -z "$PREFIX" ]	&& PREFIX="/usr"
+-	[ -z "$TARGET_BIN" ]	&& TARGET_BIN="$PREFIX/games"
++	[ -z "$TARGET_BIN" ]	&& TARGET_BIN="$PREFIX/bin"
+ 	[ -z "$TARGET_DOC" ]	&& TARGET_DOC="$PREFIX/share/doc/rezerwar"
+-	[ -z "$TARGET_DATA" ]	&& TARGET_DATA="$PREFIX/share/games/rezerwar"
++	[ -z "$TARGET_DATA" ]	&& TARGET_DATA="$PREFIX/share/rezerwar"
+ 	CFG_DATAPATH="$TARGET_DATA"
+ 	CFG_CFGPATH=".rezerwar"
+ 	;;
