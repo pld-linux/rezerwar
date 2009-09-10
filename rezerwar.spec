@@ -1,16 +1,16 @@
 Summary:	puzzle game
 Summary(pl.UTF-8):	gra logiczna
 Name:		rezerwar
-Version:	0.3
+Version:	0.4
 Release:	1
 License:	Distibutable
 Group:		X11/Applications/Games
 Source0:	http://tamentis.com/projects/rezerwar/files/%{name}-%{version}.tar.gz
-# Source0-md5:	b410f43b7e3c05995efdcd51e9f24c34
+# Source0-md5:	1acb71401b7499c2eaa8d0b10acc04f3
 Patch0:		%{name}-makefile.patch
+Patch1:		%{name}-configure.patch
 URL:		http://tamentis.com/projects/rezerwar/
 BuildRequires:	SDL_mixer-devel
-BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,7 +25,7 @@ planszy. Kilka trików i technik umożliwi szybsze osiągnięcie celu.
 %prep
 %setup -q
 %patch0 -p1
-%{__sed} -i 's@games/@@' mkfiles/config_h_unix
+%patch1 -p1
 
 %build
 ./configure
