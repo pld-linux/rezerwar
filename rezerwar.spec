@@ -1,12 +1,12 @@
-Summary:	puzzle game
-Summary(pl.UTF-8):	gra logiczna
+Summary:	Puzzle game
+Summary(pl.UTF-8):	Gra logiczna
 Name:		rezerwar
-Version:	0.4
+Version:	0.4.1
 Release:	1
-License:	Distibutable
+License:	BSD-like
 Group:		X11/Applications/Games
 Source0:	http://tamentis.com/projects/rezerwar/files/%{name}-%{version}.tar.gz
-# Source0-md5:	1acb71401b7499c2eaa8d0b10acc04f3
+# Source0-md5:	10aa0006d230d0cd5691b31219ca3b8f
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-configure.patch
 URL:		http://tamentis.com/projects/rezerwar/

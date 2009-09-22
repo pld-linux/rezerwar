@@ -9,34 +9,3 @@
  
  $(OBJECTS): %.o: %.c rezerwar.h config.h
  	$(CC) $(CFLAGS) -c $<
---- rezerwar-0.4/mkfiles/Makefile.main~	2009-09-09 22:45:47.000000000 +0200
-+++ rezerwar-0.4/mkfiles/Makefile.main	2009-09-10 13:56:48.000000000 +0200
-@@ -28,16 +28,16 @@
- 	rm -f doc/DOWNLOADS
- 
- install:
--	mkdir -p ${TARGET_BIN} ${TARGET_DOC} ${TARGET_DATA}
--	mkdir -p ${TARGET_DATA}/gfx
--	mkdir -p ${TARGET_DATA}/music
--	mkdir -p ${TARGET_DATA}/sfx
--	mkdir -p ${TARGET_DATA}/levels
--	mkdir -p ${TARGET_DOC}
--	install -m 644 doc/* ${TARGET_DOC}/
--	install -m 644 data/gfx/*.bmp ${TARGET_DATA}/gfx/
--	install -m 644 data/levels/* ${TARGET_DATA}/levels/
--	install -m 644 data/sfx/*.wav ${TARGET_DATA}/sfx/
--	install -m 644 data/music/*.ogg ${TARGET_DATA}/music/
--	install -m 755 src/rezerwar ${TARGET_BIN}/
-+	mkdir -p $(DESTDIR)${TARGET_BIN} $(DESTDIR)${TARGET_DOC} $(DESTDIR)${TARGET_DATA}
-+	mkdir -p $(DESTDIR)${TARGET_DATA}/gfx
-+	mkdir -p $(DESTDIR)${TARGET_DATA}/music
-+	mkdir -p $(DESTDIR)${TARGET_DATA}/sfx
-+	mkdir -p $(DESTDIR)${TARGET_DATA}/levels
-+	mkdir -p $(DESTDIR)${TARGET_DOC}
-+	install doc/* $(DESTDIR)${TARGET_DOC}/
-+	install data/gfx/*.bmp $(DESTDIR)${TARGET_DATA}/gfx/
-+	install data/levels/* $(DESTDIR)${TARGET_DATA}/levels/
-+	install data/sfx/*.wav $(DESTDIR)${TARGET_DATA}/sfx/
-+	install data/music/*.ogg $(DESTDIR)${TARGET_DATA}/music/
-+	install src/rezerwar $(DESTDIR)${TARGET_BIN}/
- 
