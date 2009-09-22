@@ -7,6 +7,8 @@ License:	BSD-like
 Group:		X11/Applications/Games
 Source0:	http://tamentis.com/projects/rezerwar/files/%{name}-%{version}.tar.gz
 # Source0-md5:	10aa0006d230d0cd5691b31219ca3b8f
+Source1:	%{name}.desktop
+Source2:	%{name}.xpm
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-configure.patch
 URL:		http://tamentis.com/projects/rezerwar/
@@ -36,9 +38,13 @@ planszy. Kilka trików i technik umożliwi szybsze osiągnięcie celu.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -48,3 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/*
 %attr(755,root,root) %{_bindir}/rezerwar
 %{_datadir}/rezerwar
+%{_desktopdir}/rezerwar.desktop
+%{_pixmapsdir}/rezerwar.xpm
