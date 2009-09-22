@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Rezerwar
+Comment=Puzzle game
+Comment[pl]=Gra logiczna
+Icon=rezerwar
+Exec=rezerwar
+Terminal=false
+Type=Application
+Categories=Game;LogicGame;
+# vi: encoding=utf-8
