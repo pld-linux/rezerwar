@@ -1,12 +1,12 @@
 Summary:	Puzzle game
 Summary(pl.UTF-8):	Gra logiczna
 Name:		rezerwar
-Version:	0.4.1
+Version:	0.4.2
 Release:	1
 License:	BSD-like
 Group:		X11/Applications/Games
 Source0:	http://tamentis.com/projects/rezerwar/files/%{name}-%{version}.tar.gz
-# Source0-md5:	10aa0006d230d0cd5691b31219ca3b8f
+# Source0-md5:	42018abe251e45ab8cc30133cde61ff8
 Source1:	%{name}.desktop
 Source2:	%{name}.xpm
 Patch0:		%{name}-makefile.patch
@@ -21,8 +21,8 @@ them disappear, a couple tricks and techniques will help you achieve
 this goal faster.
 
 %description -l pl.UTF-8
-Celem gry jest tworzenie sieci wodenej tak, aby znikęła ona z
-planszy. Kilka trików i technik umożliwi szybsze osiągnięcie celu.
+Celem gry jest tworzenie sieci wodenej tak, aby znikęła ona z planszy.
+Kilka trików i technik umożliwi szybsze osiągnięcie celu.
 
 %prep
 %setup -q
