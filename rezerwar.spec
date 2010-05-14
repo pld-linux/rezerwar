@@ -13,6 +13,7 @@ Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-configure.patch
 URL:		http://tamentis.com/projects/rezerwar/
 BuildRequires:	SDL_mixer-devel
+BuildRequires:	which
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
